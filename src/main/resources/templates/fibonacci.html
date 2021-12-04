@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fibonacci number</title>
+</head>
+<body>
+<h2>
+    Program to find n’th Fibonacci number
+</h2>
+<form action="#" th:action="@{/}" th:object="${fibonacciNumber}" method="post">
+    <p>
+        Position:
+        <input required type="number" th:field="*{position}"/>
+    </p>
+    <p>
+        <input type="submit" value="Submit"/>
+    </p>
+    <p th:if="${fibonacciNumber?.value != null}" th:text="'F(' + ${fibonacciNumber.getPosition()} + ') = ' + ${fibonacciNumber.getValue()} "> </p>
+</form>
+</body>
+</html>
