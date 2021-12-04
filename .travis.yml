@@ -6,3 +6,16 @@ services:
 
 before_install:
   - docker build -t pwcho/lab8 .
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "pwcho-lab8"
+  env: "pwcholab8-env"
+  bucket_name: "elasticbeanstalk-us-east-2-862524626250"
+  bucket_path: "pwcho-lab8"
+  edge: true
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
